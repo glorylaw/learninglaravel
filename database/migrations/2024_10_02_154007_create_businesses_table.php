@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePraysTable extends Migration
+class CreateBusinessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreatePraysTable extends Migration
      */
     public function up()
     {
-        Schema::create('prays', function (Blueprint $table) {
-            $table->id();
+        Schema::create('businesses', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->string('admin_id');
+            $table->string('name');
+            $table->string('country');
+            $table->string('currency');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePraysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prays');
+        Schema::dropIfExists('businesses');
     }
 }
